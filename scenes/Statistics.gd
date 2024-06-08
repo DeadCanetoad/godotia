@@ -4,14 +4,14 @@ class_name Statistics
 
 signal game_over
 
-var lives setget _lives
-var health setget _health
-var level setget _level
-var score setget _score
+var lives : set = _lives
+var health : set = _health
+var level : set = _level
+var score : set = _score
 var hscore = 0
-var population setget _population
-var time setget _time
-var energy setget _energy
+var population : set = _population
+var time : set = _time
+var energy : set = _energy
 var max_energy = 0
 var nodes
 

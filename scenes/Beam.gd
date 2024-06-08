@@ -25,7 +25,7 @@ func _ready():
 
 func fire(_dir):
 	dir = _dir
-	reach = rand_range(200, 400) * dir
+	reach = randf_range(200, 400) * dir
 	position.x *= dir
 	play_tween()
 
@@ -58,8 +58,8 @@ func play_tween():
 			tween.interpolate_property(line, "modulate", line.modulate, Color(0, 0, 1), dt)
 			if TEST:
 				# repeat with randomized position and reach
-				position = Vector2(100, rand_range(100, 120))
-				reach = rand_range(200, 400)
+				position = Vector2(100, randf_range(100, 120))
+				reach = randf_range(200, 400)
 				step = -1
 		3:
 			# dispose of this object after the tweens complete

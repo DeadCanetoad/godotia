@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 class_name Structure, "res://textures/structures/aparto.png"
 
@@ -7,16 +7,16 @@ const CRASH_SPEED = 40
 
 enum states { STATIC, FALLING }
 
-export var title: String
-export var description: String
+@export var title: String
+@export var description: String
 
 var velocity = Vector2(0, 0)
 var state = states.STATIC
 var targeted = false
 
 func _ready():
-	var mat = get_node("Sprite").get_material().duplicate(true)
-	get_node("Sprite").set_material(mat)
+	var mat = get_node("Sprite2D").get_material().duplicate(true)
+	get_node("Sprite2D").set_material(mat)
 
 
 func _physics_process(delta):

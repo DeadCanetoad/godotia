@@ -8,7 +8,7 @@ var count
 func enter():
 	count = 0
 	if connect:
-		connect = e.anim.connect("animation_finished", self, "animation_finished")
+		connect = e.anim.connect("animation_finished", Callable(self, "animation_finished"))
 	e.anim.play("Explosion")
 	e.get_node("Explode").play()
 

@@ -18,10 +18,10 @@ func start(terrain, offset, player_speed, _max_x):
 	position = globals.player.position + Vector2(terrain.last_point.x - offset, 10)
 	if globals.player.direction:
 		direction = 1
-		$Sprite.flip_h = false
+		$Sprite2D.flip_h = false
 	else:
 		direction = -1
-		$Sprite.flip_h = true
+		$Sprite2D.flip_h = true
 
 
 func _on_Missile_area_entered(_area):

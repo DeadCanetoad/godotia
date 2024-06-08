@@ -26,14 +26,14 @@ func set_points(terrain: Terrain):
 
 
 func resize(terrain: Terrain, y_size):
-	coor_scale = self.rect_size / Vector2(terrain.line.get_point_count() * terrain.GRID_SIZE, y_size)
+	coor_scale = self.size / Vector2(terrain.line.get_point_count() * terrain.GRID_SIZE, y_size)
 	line.position = Vector2(0, terrain.base_level * coor_scale.y)
 	set_points(terrain)
 
 
 func add_entity(e):
 	# Don't care about the position here
-	var node = e.get_node("Sprite").duplicate()
+	var node = e.get_node("Sprite2D").duplicate()
 	node.name = get_id(e)
 	node.scale = ITEM_SCALE
 	entities.add_child(node)
@@ -77,11 +77,11 @@ func clean_entities():
 
 
 func get_node_position(node, offset):
-	return node.global_position * coor_scale + Vector2(rect_size.x - offset * coor_scale.x, 0)
+	return node.global_position * coor_scale + Vector2(size.x - offset * coor_scale.x, 0)
 
 
 func add_player(p, scroll_position, terrain): 
-	player = p.get_node("Sprite").duplicate()
+	player = p.get_node("Sprite2D").duplicate()
 	position_player(p, scroll_position, terrain)
 	add_child(player)
 

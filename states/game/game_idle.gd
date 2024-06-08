@@ -6,8 +6,8 @@ var connect = true
 
 func enter():
 	if connect:
-		connect = g.ui.connect("play_game", self, "play_game")
-		connect = g.ui.connect("quit_game", self, "quit_game")
+		connect = g.ui.connect("play_game", Callable(self, "play_game"))
+		connect = g.ui.connect("quit_game", Callable(self, "quit_game"))
 	g.ui.pop_up_with_text("WELCOME TO GODOTIA!")
 	g.load_high_score()
 	g.stats.score = 0

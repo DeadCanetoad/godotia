@@ -18,14 +18,14 @@ var area_entered
 var anim
 
 func _ready():
-	shot_range_squared = pow(rand_range(globals.shots.range1, globals.shots.range2), 2)
+	shot_range_squared = pow(randf_range(globals.shots.range1, globals.shots.range2), 2)
 	for node in $States.get_children():
 		node.e = self
 	anim = $AnimationPlayer
 	# Make shader material unique
 	# https://godotengine.org/qa/2866/how-do-i-make-material-shader-instances-2d
-	var mat = get_node("Sprite").get_material().duplicate(true)
-	get_node("Sprite").set_material(mat)
+	var mat = get_node("Sprite2D").get_material().duplicate(true)
+	get_node("Sprite2D").set_material(mat)
 
 
 func move(delta):
@@ -44,12 +44,12 @@ func _on_Enemy_body_entered(body):
 
 func fire():
 	if $ShotTimer.is_stopped():
-		var shot = shot_scene.instance()
+		var shot = shot_scene.instantiate()
 		shot.position = position
 		shot.direction = (target.position - position).normalized()
 		get_parent().add_child(shot)
 		get_node("Fire").play()
-		$ShotTimer.start(rand_range(globals.shots.fire_delay1, globals.shots.fire_delay2))
+		$ShotTimer.start(randf_range(globals.shots.fire_delay1, globals.shots.fire_delay2))
 
 
 func got_building():

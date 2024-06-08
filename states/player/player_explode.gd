@@ -9,7 +9,7 @@ func enter():
 	count = 0
 	print("Player explode")
 	if connect:
-		connect = p.anim.connect("animation_finished", self, "animation_finished")
+		connect = p.anim.connect("animation_finished", Callable(self, "animation_finished"))
 	p.anim.play("Explosion")
 
 

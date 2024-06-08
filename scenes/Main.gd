@@ -30,18 +30,18 @@ var stats : Statistics
 func _ready():
 	globals.game = self
 	background = $ParallaxBackground
-	sky = find_node("Sky")
+	sky = find_child("Sky")
 	anim = $AnimationPlayer
 	map = $Map
 	stats = $Statistics
 	ui = $UI
 	# Allow for renaming of the parallax layer(s) later, so using find_node() and get_parent()
-	terrain = find_node("Terrain")
+	terrain = find_child("Terrain")
 	terrain.get_parent().motion_mirroring.x = terrain.last_point.x
 	# Start in the middle of the map
 	scroll_position = terrain.last_point.x / 2
 	# warning-ignore:return_value_discarded
-	get_tree().get_root().connect("size_changed", self, "resize")
+	get_tree().get_root().connect("size_changed", Callable(self, "resize"))
 	resize()
 	map.set_points(terrain)
 	for node in $States.get_children():
@@ -54,13 +54,13 @@ func resize():
 	terrain.set_base_level(size)
 	sky.resize(size)
 	map.resize(terrain, size.y)
-	map.rect_position.x = (size.x - map.rect_size.x) / 2
-	stats.rect_size.x = size.x
-	ui.rect_position = (size - ui.rect_size) / 2
+	map.position.x = (size.x - map.size.x) / 2
+	stats.size.x = size.x
+	ui.position = (size - ui.size) / 2
 
 
 func add_player():
-	player = player_scene.instance()
+	player = player_scene.instantiate()
 	globals.player = player
 	player.position = Vector2(player.MARGIN, size.y / 2)
 	map.add_player(player, scroll_position, terrain)
@@ -94,7 +94,7 @@ func spawn_enemy():
 			add_enemy(target)
 			enemies_to_spawn -= 1
 			if !TEST_ENEMY:
-				$Spawner.start(rand_range(1, 5))
+				$Spawner.start(randf_range(1, 5))
 
 
 func _on_Spawner_timeout():
@@ -121,26 +121,26 @@ func pick_target():
 
 
 func add_enemy(target):
-	var enemy = enemy_scene.instance()
+	var enemy = enemy_scene.instantiate()
 	enemy.target = { "object": target, "position": target.get_parent().position }
-	enemy.position = Vector2(enemy.target.position.x + rand_range(-100, 100), -size.y)
-	enemy.connect("enemy_killed", stats, "add_points")
+	enemy.position = Vector2(enemy.target.position.x + randf_range(-100, 100), -size.y)
+	enemy.connect("enemy_killed", Callable(stats, "add_points"))
 	terrain.line.add_child(enemy)
 	enemy.add_to_group("enemies")
 	map.add_entity(enemy)
 
 
 func fire_missile():
-	var m = missile_scene.instance()
+	var m = missile_scene.instantiate()
 	terrain.add_child(m)
-	m.start(terrain, scroll_position, speed, terrain.last_point.x)
+	m.start(Callable(terrain, scroll_position).bind(speed), terrain.last_point.x)
 	player.get_node("Fire").play()
 
 
 func fire_beam():
-	var b = beam_scene.instance()
+	var b = beam_scene.instantiate()
 	player.add_child(b)
-	b.fire(sign(player.get_node("Sprite").scale.x))
+	b.fire(sign(player.get_node("Sprite2D").scale.x))
 	player.get_node("Fire").play()
 
 

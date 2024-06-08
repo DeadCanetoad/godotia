@@ -18,7 +18,7 @@ func _ready():
 	line = $Line2D
 	flat = load("res://scenes/Flat.tscn")
 	# Set width of flat collision segment resource
-	flat.instance().get_child(0).shape.set_a(Vector2(-GRID_SIZE, 0))
+	flat.instantiate().get_child(0).shape.set_a(Vector2(-GRID_SIZE, 0))
 	add_collision_surfaces()
 
 
@@ -44,7 +44,7 @@ func add_collision_surface(point: Vector2):
 	line.add_point(point)
 	# Save points of the flat sections of terrain
 	if last_point and last_point.y == point.y:
-		var f = flat.instance()
+		var f = flat.instantiate()
 		f.position = point
 		flats.append(f)
 		line.add_child(f)

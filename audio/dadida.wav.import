@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/dadida.wav-b739ef4a36e9e693985201e390f4371b.sample"
+type="AudioStreamWAV"
+uid="uid://b2k0yg50f5p3x"
+path="res://.godot/imported/dadida.wav-b739ef4a36e9e693985201e390f4371b.sample"
 
 [deps]
 
 source_file="res://audio/dadida.wav"
-dest_files=[ "res://.import/dadida.wav-b739ef4a36e9e693985201e390f4371b.sample" ]
+dest_files=["res://.godot/imported/dadida.wav-b739ef4a36e9e693985201e390f4371b.sample"]
 
 [params]
 

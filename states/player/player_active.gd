@@ -7,8 +7,8 @@ var connect = true
 func enter():
 	print("Player active")
 	if connect:
-		connect = p.connect("got_hit", self, "got_hit")
-		connect = p.connect("crashed", self, "crashed")
+		connect = p.connect("got_hit", Callable(self, "got_hit"))
+		connect = p.connect("crashed", Callable(self, "crashed"))
 
 
 func process(_delta):

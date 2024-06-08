@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/buzz.wav-81ab10bc8ec53ce2e30d5cfc694bd226.sample"
+type="AudioStreamWAV"
+uid="uid://dpt0kydhomm8n"
+path="res://.godot/imported/buzz.wav-81ab10bc8ec53ce2e30d5cfc694bd226.sample"
 
 [deps]
 
 source_file="res://audio/buzz.wav"
-dest_files=[ "res://.import/buzz.wav-81ab10bc8ec53ce2e30d5cfc694bd226.sample" ]
+dest_files=["res://.godot/imported/buzz.wav-81ab10bc8ec53ce2e30d5cfc694bd226.sample"]
 
 [params]
 

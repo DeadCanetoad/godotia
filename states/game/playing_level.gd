@@ -8,9 +8,9 @@ func enter():
 	g = globals.game
 	g.spawn_enemy()
 	if connect:
-		connect = g.map.connect("end_of_level", self, "increase_level")
-		connect = g.stats.connect("game_over", self, "game_over")
-		connect = g.player.connect("killed", self, "game_over")
+		connect = g.map.connect("end_of_level", Callable(self, "increase_level"))
+		connect = g.stats.connect("game_over", Callable(self, "game_over"))
+		connect = g.player.connect("killed", Callable(self, "game_over"))
 
 
 func increase_level():

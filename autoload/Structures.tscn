@@ -3,9 +3,9 @@
 [ext_resource path="res://autoload/Structures.gd" type="Script" id=1]
 [ext_resource path="res://extensions/energy_source.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Structure.tscn" type="PackedScene" id=3]
-[ext_resource path="res://textures/structures/cylinder.png" type="Texture" id=4]
-[ext_resource path="res://textures/structures/office.png" type="Texture" id=5]
-[ext_resource path="res://textures/structures/gas-tank.png" type="Texture" id=6]
+[ext_resource path="res://textures/structures/cylinder.png" type="Texture2D" id=4]
+[ext_resource path="res://textures/structures/office.png" type="Texture2D" id=5]
+[ext_resource path="res://textures/structures/gas-tank.png" type="Texture2D" id=6]
 [ext_resource path="res://extensions/building.gd" type="Script" id=7]
 
 
@@ -26,14 +26,14 @@ modulate = Color( 0, 0.772549, 0.717647, 1 )
 position = Vector2( 34.4928, 17.6448 )
 script = ExtResource( 7 )
 
-[node name="Sprite" parent="Office" index="1"]
+[node name="Sprite2D" parent="Office" index="1"]
 texture = ExtResource( 5 )
 
 [node name="Cylinder" parent="." instance=ExtResource( 3 )]
 position = Vector2( 57.2952, 17.5191 )
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="Cylinder" index="1"]
+[node name="Sprite2D" parent="Cylinder" index="1"]
 texture = ExtResource( 4 )
 
 [node name="Gas" parent="." instance=ExtResource( 3 )]
@@ -44,7 +44,7 @@ script = ExtResource( 2 )
 position = Vector2( -8, -10 )
 shape = SubResource( 1 )
 
-[node name="Sprite" parent="Gas" index="1"]
+[node name="Sprite2D" parent="Gas" index="1"]
 position = Vector2( -8, -6 )
 texture = ExtResource( 6 )
 offset = Vector2( 0, -4 )

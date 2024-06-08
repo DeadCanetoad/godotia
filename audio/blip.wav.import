@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/blip.wav-727bf1c79c1a2371734890a4bff343a2.sample"
+type="AudioStreamWAV"
+uid="uid://bq3hxpkry0f57"
+path="res://.godot/imported/blip.wav-727bf1c79c1a2371734890a4bff343a2.sample"
 
 [deps]
 
 source_file="res://audio/blip.wav"
-dest_files=[ "res://.import/blip.wav-727bf1c79c1a2371734890a4bff343a2.sample" ]
+dest_files=["res://.godot/imported/blip.wav-727bf1c79c1a2371734890a4bff343a2.sample"]
 
 [params]
 
